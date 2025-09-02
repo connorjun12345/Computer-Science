@@ -10,7 +10,7 @@ public class Lamp {
     private String part; // = "cord";
     private String on_or_off; // = "power switch";
     private String color; // = "White lamp shade";
-    private double height_feet; // = 1.5;
+    private double heightFeet; // = 1.5;
     private int lampBrightness; 
 
     public Lamp() {
@@ -19,8 +19,17 @@ public class Lamp {
         part = "chord";
         on_or_off = "power switch";
         color = "White lamp shade";
-        height_feet = 1.5;
+        heightFeet = 1.5;
         lampBrightness = 10;
+    }
+
+    public void replaceLight(int lampBrightness) {
+        if (lampBrightness < 5) {
+            System.out.println("The light bulb is too dim. Please replace!!");
+        }
+        else {
+            System.out.println("No need to change the light bulb yet!!");
+        }
     }
 
 
