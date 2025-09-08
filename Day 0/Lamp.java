@@ -23,6 +23,7 @@ public class Lamp {
         lampBrightness = 10;
     }
 
+
     public void replaceLight(int lampBrightness) {
         if (lampBrightness < 5) {
             System.out.println("The light bulb is too dim. Please replace!!");
@@ -30,6 +31,20 @@ public class Lamp {
         else {
             System.out.println("No need to change the light bulb yet!!");
         }
+    }
+
+    
+        public boolean equals(Lamp otherLamp) {
+            if(
+            this.numOfBulbs == otherLamp.numOfBulbs &&
+            this.body
+            )
+    
+    
+    
+    public String toString() {
+        return "This lamp has" + lampBrightness + "percent brightness" + 
+        heightFeet + "feet tall";
     }
 
 
