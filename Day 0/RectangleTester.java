@@ -12,6 +12,6 @@ public class RectangleTester {
         System.out.println("Testing setLength: at first, length is " + five.getLength());
         five.setLength(12);
         System.out.println("After the setter, length is " + five.getLength());
-        System.out.println("The area of the rectangle is " + caclulateArea);
+        System.out.println("The area of the rectangle is " + calculateArea);
     }
 }

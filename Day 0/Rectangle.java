@@ -40,10 +40,38 @@ public class Rectangle {
     }
 
     public int calculateArea() {
-        return area = length * width;
+        int calculateArea = length * width;
+        return calculateArea;
     }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
+
+    public int getPerimeter() {
+        return perimeter;
+    }
+
+    public void setPerimeter(int perimeter) {
+        this.perimeter = perimeter;
+    }
+
+    public int getcalculateArea() {
+        return calculateArea;
+    }
+
+
 
     public int calculatePerimeter() {
         return perimeter = 2 * length + 2 * width;
+    }
+
+    public double calculateDiagonal() {
+        double calculateDiagonal = Math.sqrt(length * width) + (length * width);
+        return calculateDiagonal;
     }
 }

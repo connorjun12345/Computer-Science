@@ -9,6 +9,16 @@ public class LampTester {
         colorfulLamp.on();
         colorfulLamp.off();
         colorfulLamp.shatter();
-        System.out.println(colorfulLamp.toString);
+        System.out.println(colorfulLamp.toString());
+
+        Lamp lampTwo = new Lamp();
+        if (colorfulLamp.equals(lampTwo)) {
+            System.out.println("The two lamps are equal!");
+
+        } 
+        else{
+            System.out.println("The two lamps are not equal");
+        }
+        
     }
 }

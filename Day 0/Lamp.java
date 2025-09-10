@@ -8,7 +8,7 @@ public class Lamp {
     private int numOfBulbs; // = 1;
     private String body; // = "Silver";
     private String part; // = "cord";
-    private String on_or_off; // = "power switch";
+    private String onOrOff; // = "power switch";
     private String color; // = "White lamp shade";
     private double heightFeet; // = 1.5;
     private int lampBrightness; 
@@ -17,7 +17,7 @@ public class Lamp {
         numOfBulbs = 1;
         body = "silver";
         part = "chord";
-        on_or_off = "power switch";
+        onOrOff = "power switch";
         color = "White lamp shade";
         heightFeet = 1.5;
         lampBrightness = 10;
@@ -35,16 +35,34 @@ public class Lamp {
 
     
         public boolean equals(Lamp otherLamp) {
-            if(
-            this.numOfBulbs == otherLamp.numOfBulbs &&
-            this.body
-            )
+            if (numOfBulbs == otherLamp.numOfBulbs) {
+               return true;
+            }
+            else{
+                return false;
+            } 
+            // if(
+            // this.numOfBulbs == otherLamp.numOfBulbs &&
+            // this.body == otherLamp.body &&
+            // this.part == otherLamp.part &&
+            // this.color == otherLamp.color &&
+            // )
+        }
     
-    
-    
+    public int getlampBrightness() {
+        return this.lampBrightness;
+    }
+
+    public void setheightFeet(int heightFeet) {
+        this.heightFeet = heightFeet;
+    }
+
+
+
     public String toString() {
-        return "This lamp has" + lampBrightness + "percent brightness" + 
-        heightFeet + "feet tall";
+        return "This lamp has " + lampBrightness + " percent brightness " + 
+        heightFeet + " feet tall " + body + " color " + part + " attatchment " +
+         onOrOff + " part " + color + " color " + numOfBulbs + " bulbs ";
     }
 
 
@@ -63,15 +81,15 @@ public class Lamp {
     }
 
     public void on() {
-        on_or_off = "on";
+        onOrOff = "on";
         System.out.println("The lamp is now turned");
-        System.out.println(on_or_off);
+        System.out.println(onOrOff);
     }
 
     public void off() {
-        on_or_off = "off";
+        onOrOff = "off";
         System.out.println("The lamp is now turned");
-        System.out.println(on_or_off);
+        System.out.println(onOrOff);
     }
     
     //illuminate
