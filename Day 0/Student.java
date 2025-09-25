@@ -31,7 +31,16 @@ public class Student {
         return(name + " is a " + grade + "th grader. Their id is" + id + ".");
     }
 
-    public boolean equals(String other) {
+    public boolean equals(Student other) {
+        if (this.Student == other.Student) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public String generateId() {
         
     }
 }

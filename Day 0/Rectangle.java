@@ -39,6 +39,12 @@ public class Rectangle {
         width = newWidth;
     }
 
+    public String toString() {
+        return ("This rectangle has a length of " 
+            + length + "and a width of " + width + ". The area is " + area);
+
+    }
+
     public int calculateArea() {
         int calculateArea = length * width;
         return calculateArea;
