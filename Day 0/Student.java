@@ -27,21 +27,40 @@ public class Student {
         return grade;
     }
 
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
-        return(name + " is a " + grade + "th grader. Their id is" + id + ".");
+        return (name + " is a " + grade + "th grader. Their id is " + id + ".");
     }
 
     public boolean equals(Student other) {
-        if (this.Student == other.Student) {
+        if (this.name.equals(other.name) && this.grade == other.grade && this.id.equals(other.id)) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     public String generateId() {
-        
+        int digit1 = (int) (Math.random() * 8) + 1;
+        int digit2 = (int) (Math.random() * 8) + 1;
+        int digit3 = (int) (Math.random() * 8) + 1;
+        int digit4 = (int) (Math.random() * 10);
+        int digit5 = (int) (Math.random() * 10);
+        int digit6 = (int) (Math.random() * 10);
+        int digit7 = (int) (Math.random() * 10);
+        return digit1 + "" + digit2 + "" +  digit3 + "-" 
+            + digit4 + digit5 + digit6 + digit7;
     }
 }
 
