@@ -12,16 +12,20 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = dogId;
-        this.dogChar = generateDogChar();
-        this.dogTag = generateDogTag();
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
     public Dog() {
-        this.dogChar = generateDogChar();
-        this.dogTag = generateDogTag();
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
+        this.name = "John";
+        this.ownerName = "Joe";
+        this.age = 3;
+        this.dogId = 500;
     }
 
 
@@ -62,7 +66,7 @@ public class Dog {
 
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
     }
 
 
@@ -102,7 +106,7 @@ public class Dog {
 
     public boolean equals(Dog other) {
         if (this.name.equals(other.name) && 
-            this.ownerName.equals(other.ownerName) && 
+            this.name.equals(other.ownerName) && 
             this.age == other.age && 
             this.dogTag == other.dogTag &&
             this.stillInFacility == other.stillInFacility) {
@@ -112,21 +116,6 @@ public class Dog {
             }
     }
     
-    public String generateDogTag() {
-        String generateDogTag = "" + dogId + dogChar;
-        return generateDogTag;
-    }
-
-    public char generateDogChar() {
-        int x = (dogId / 100) % 10;
-        int y = (dogId / 10 ) % 10;
-        int z = (dogId % 10);
-        int sum = x + y + z;
-        return (char) ('F' + (sum % 10));
-
-    }
-
-
 
 
 }
