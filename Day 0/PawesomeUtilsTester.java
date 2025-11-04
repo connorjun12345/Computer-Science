@@ -10,6 +10,10 @@ public class PawesomeUtilsTester {
         System.out.println(PawesomeUtils.validateDogTag(dogA));
         System.out.println(PawesomeUtils.validateDogTag(dogB));
         System.out.println(PawesomeUtils.validateDogTag(dogC));
+        dogA.setDogTag("456G");
+        System.out.println(PawesomeUtils.validateDogTag(dogA));
+        System.out.println(PawesomeUtils.validateDogTag(dogB));
+        System.out.println(PawesomeUtils.validateDogTag(dogC));
 
     }
 }

@@ -1,50 +1,102 @@
-public class Cat {//made public lowercase and removed s from cats
-	private String name;
-	private String breed;
-	private boolean isHungry;
-	private int livesRemaining;
-	
-	// 2-Parameter Constructor
-	public Cat(String name, String breed) { //made cat uppercase and added String Breed to the parameter
-		this.name = name;
-		this.breed = breed;
-		this.isHungry = true;//changed yes to true
-		livesRemaining = 9;
-	}
+public class Cat {
+    private String name;
+    private String ownerName;
+    private int moodLevel;
+    private String catId;
+    private char catChar;
+    private boolean isHungry;
 
-	public String getName() { //changed void to String
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-    public void setBreed(String breed) { //added setter for Breed
-        this.breed = breed;
+    public Cat(String name, String ownerName, int moodLevel, String catId) {
+        this.name = name;
+        this.ownerName = ownerName;
+        this.moodLevel = moodLevel;
+        this.catId = catId;
+        this.catChar = PurrfectUtils.generateCatChar(this.catId);
+        this.isHungry = true;
     }
 
-    public String getBreed() { // added getter for breed
-        return breed;
+    public Cat() {
+        this.name = "Cookie";
+        this.ownerName = "Lopez";
+        this.moodLevel = 5;
+        this.catId = "1435";
+        this.catChar = PurrfectUtils.generateCatChar(this.catId);
+        this.isHungry = true;
     }
 
-	public boolean getIsHungry(){ //changed void to boolean and fized camel case
-		return isHungry;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void feed() { //changed boolean to void
-		this.isHungry = false;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public boolean equals(Cat other) { //changed = too == and changed into if statement and remove ;
-		if (this.name == other.name && this.breed.equals(other.breed) && this.livesRemaining == other.livesRemaining) {
-            return true;
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public int getMoodLevel() {
+        return moodLevel;
+    }
+
+    public void setMoodLevel(int moodLevel) {
+        int mood = PurrfectUtils.validateMoodLevel(moodLevel);
+        this.moodLevel = mood;
+    }
+
+    public String getCatId() {
+        return catId;
+    }
+
+    public void setCatId(String catId) {
+        String catNum = PurrfectUtils.validateCatId(catId);
+        this.catId = catNum;
+    }
+
+    public char getCatChar() {
+        return catChar;
+    }
+
+    public void setCatChar(char catChar) {
+        this.catChar = catChar;
+    }
+
+    public boolean isHungry() {
+        return isHungry;
+    }
+
+    public void setHungry(boolean isHungry) {
+        this.isHungry = isHungry;
+    }
+
+    public String generateCatTag() {
+        String catTag = catId + catChar;
+        return catTag;
+    }
+
+    public String toString() {
+        return "== ABOUT " + name + " ==\n" + name 
+            + " is a cat.\nTheir tag is " + generateCatTag() 
+            + ".\n" + PurrfectUtils.determineCatMood(this); 
+    }
+
+    public boolean equals(Cat other) {
+        if (this.name.equals(other.name) 
+            && this.ownerName.equals(other.ownerName) 
+            && this.moodLevel == other.moodLevel 
+            && this.catId.equals(other.catId) 
+            && this.catChar == other.catChar 
+            && this.isHungry == other.isHungry) {
+                return true;
         } else {
             return false;
         }
-	}
+    }
 
-	public String toString() { //changed System.out.println to return
-		return (name + " is of breed " + breed + " and has " + livesRemaining + " lives remaining.");
-	}
+    
 }

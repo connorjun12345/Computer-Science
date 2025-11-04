@@ -1,0 +1,107 @@
+public class Line {
+    private int a;
+    private int b;
+    private int c;
+
+    public Line(int a, int b, int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public void setC(int c) {
+        this.c = c;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public int getC() {
+        return c;
+    }
+
+    public double calculateSlope() {
+        double calculateSlope = -(double) a / (double) b;
+        return calculateSlope;
+    }
+   
+    public boolean isCoordinateOnLine(int x, int y) {
+        if ((a * x) + (b * y) + c == 0) {
+            return true;
+        } else {
+            return false; 
+        }
+    }
+      
+    public String toString() {
+        return ("Equation:" + a + "x" + "+" + b + "y" + "=" + c);
+    }
+
+    public boolean equals(Line other) {
+        if (a == other.a && b == other.b && c == other.c) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class LineTester {
+    public static void main(String[] args) {
+        // Testing Line 1
+        Line line1 = new Line(5, 4, -17);
+        double slope1 = line1.calculateSlope(); // slope1 should be -1.25 
+        // Should be true, as 5(5) + 4(-23) + (-17) = 0
+        System.out.println(slope1);
+        boolean onLine1 = line1.isCoordinateOnLine(5, -2); 
+        System.out.println(onLine1);
+
+        // Testing Line 2
+        Line line2 = new Line(-25, 40, 30);
+        double slope2 = line2.calculateSlope(); // slope2 should be 0.625
+        System.out.println(slope2);
+
+
+        // Should be false as -25(5) + 40(-2) + 30 != 0
+        boolean onLine2 = line2.isCoordinateOnLine(5, -2);
+        System.out.println(onLine2);
+    }
+}

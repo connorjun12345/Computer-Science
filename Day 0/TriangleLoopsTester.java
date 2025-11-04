@@ -5,10 +5,17 @@ public class TriangleLoopsTester {
 
         // for example:
         System.out.println(TriangleLoops.createLetterTriangleUp(3, 'A'));
-        System.out.println(TriangleLoops.createLetterTriangleUp(15, 'B'));
+        System.out.println(TriangleLoops.createLetterTriangleUp(5, 'B'));
+        System.out.println(TriangleLoops.createLetterTriangleUp(-3, 'B'));
 
-        System.out.println(TriangleLoops.createLetterTriangleUp(3, 'A'));
-        System.out.println(TriangleLoops.createLetterTriangleUp(15, 'B'));
+        System.out.println(TriangleLoops.createLetterTriangleDown(3, 'A'));
+        System.out.println(TriangleLoops.createLetterTriangleDown(5, 'B'));
+
+        System.out.println(TriangleLoops.createNumbersTriangle(4));
+        System.out.println(TriangleLoops.createNumbersTriangle(9));
+
+        System.out.println(TriangleLoops.createAlphabetTriangle(5));
+        System.out.println(TriangleLoops.createAlphabetTriangle(28));
 
     }
 } 
