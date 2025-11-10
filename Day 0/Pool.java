@@ -8,15 +8,15 @@ public class Pool {
 
     public Pool(String name, String ownerName, int cleanlinesslevel) {
         this.ownerName = ownerName;
-        this.username = generateUsername();
-        this.cleanlinessLevel = validateCleanlinessLevel();
+        this.username = PoolUtils.generateUsername(name);
+        this.cleanlinessLevel = PoolUtils.validateCleanlinessLevel();
         this.needsChemicalCheck = false;
     }
 
     public Pool(String name, String ownerName, int cleanlinesslevel, boolean needsChemicalCheck) {
         this.name = "My Pool";
         this.ownerName = "Connor Jun";
-        this.username = generateUsername();
+        this.username = PoolUtils.generateUsername();
         this.cleanlinessLevel = 5;
         this.needsChemicalCheck = false;
     }
@@ -34,7 +34,7 @@ public class Pool {
     }
 
     public void setOwnerName(String ownerName) {
-        fixName(ownerName);
+        PoolUtils.fixName(ownerName);
         this.ownerName = ownerName;
     }
 
@@ -51,7 +51,7 @@ public class Pool {
     }
 
     public void setCleanlinessLevel(int cleanlinessLevel) {
-        validateCleanLevel(cleanlinessLevel);
+        PoolUtils.validateCleanlinessLevel(cleanlinessLevel);
         this.cleanlinessLevel = cleanlinessLevel;
     }
 
