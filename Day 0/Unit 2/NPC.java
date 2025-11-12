@@ -1,8 +1,8 @@
 public class NPC {
     private String choice;
 
-    public NPC(String choice) {
-        this.choice = RPSGame.generateRandomChoice(choice);
+    public NPC() {
+        this.choice = RPSGame.generateRandomChoice();
     }
 
     public String getChoice() {
@@ -10,6 +10,11 @@ public class NPC {
     }
 
     public void setChoice(String choice) {
+        choice = choice.toLowerCase();
+        RPSGame.validateChoice(choice);
+        if (RPSGame.validateChoice(choice) == false) {
+            choice = RPSGame.generateRandomChoice();
+        }
         this.choice = choice;
     }
 
