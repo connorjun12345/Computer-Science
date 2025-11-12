@@ -3,31 +3,31 @@ import java.util.Scanner;
 public class RPSGame {
     private Player player;
     private NPC opponent;
+    private Scanner scanner;
 
     public RPSGame(Player player, NPC opponent) {
         this.player = player;
         this.opponent = opponent;
+        scanner = new Scanner(System.in);
     }
 
     
     public void start() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter name: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         
         System.out.println("Enter rock, paper, or scissors: ");
-        String choice = scanner.next();
+        String choice = scanner.nextLine();
         choice = choice.toLowerCase();
 
         int attempts = 1;
         while (validateChoice(choice)  == false && attempts < 3) {
             System.out.println("Invalid choice. Please try again: ");
-            choice = scanner.next();
+            choice = scanner.nextLine();
             choice = choice.toLowerCase();
             attempts += 1;
         }
 
-        scanner.close();
 
         if (validateChoice(choice) == false) {
             choice = generateRandomChoice();
@@ -35,7 +35,7 @@ public class RPSGame {
         }
 
         setPlayerValues(name, choice);
-        scanner.close();
+   
 
         // Scanner scanner2 = new Scanner(System.in);
         // String choice = scanner2.next();
@@ -44,7 +44,7 @@ public class RPSGame {
         //     validateChoice(choice);
         // }
         // scanner2.close();
-
+        //scanner.close();
     }
 
     public boolean didPlayerWin() {
