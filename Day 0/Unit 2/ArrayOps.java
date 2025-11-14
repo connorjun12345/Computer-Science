@@ -9,13 +9,13 @@ public class ArrayOps {
      * @return The constructed string representation of the array.
      */
     public static String printStringArray(String[] array) {
-        String final = 
+        String finish = "\"[";
         for (int i = 0; i < array.length; i++) {
             String word = array[i];
-            String finish = "\"[" + word;
+            finish = finish + word;
         }
-        finish = finish + "\"]";
-        return finish;
+        finish = finish + "]\"";
+        return "";
     }
 
     /**
