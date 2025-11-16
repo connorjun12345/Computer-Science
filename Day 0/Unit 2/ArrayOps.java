@@ -9,13 +9,22 @@ public class ArrayOps {
      * @return The constructed string representation of the array.
      */
     public static String printStringArray(String[] array) {
-        String finish = "\"[";
+        if (array == null) {
+            System.out.println("[]");
+            return "[]";
+        }
+
+        String finish = "[";
         for (int i = 0; i < array.length; i++) {
             String word = array[i];
             finish = finish + word;
+            if (i < array.length - 1) {
+                finish = finish + ", ";
+            }
         }
-        finish = finish + "]\"";
-        return "";
+        finish = finish + "]";
+        System.out.println(finish);
+        return finish;
     }
 
     /**
@@ -28,8 +37,22 @@ public class ArrayOps {
      */
 
     public static String printIntegerArray(int[] array) {
+        if (array == null) {
+            System.out.println("[]");
+            return "[]";
+        }
 
-        return "";
+        String finish = "[";
+        for (int i = 0; i < array.length; i++) {
+            int num = array[i];
+            finish = finish + num;
+            if (i < array.length - 1) {
+                finish = finish + ", ";
+            }
+        }
+        finish = finish + "]";
+        System.out.println(finish);
+        return finish;
     }
 
     /**
@@ -40,7 +63,14 @@ public class ArrayOps {
      * @return The largest integer in the array.
      */
     public static int findMax(int[] array) {
-        return 0;
+        int biggest = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (biggest < array[i]) {
+                biggest = array[i];
+            }
+        }
+
+        return biggest;
     }
 
     /**
@@ -53,7 +83,20 @@ public class ArrayOps {
      * @return The longest String in the array.
      */
     public static String findLongestString(String[] array) {
-        return "";
+        if (array == null || array.length == 0) {
+            return "[]";
+        }
+        String longest = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] != null && array[i].length() > longest.length()) {
+                longest = array[i];
+            }
+
+
+        }
+
+
+        return longest;
     }
 
     /**
@@ -64,7 +107,23 @@ public class ArrayOps {
      * @return The average length of all the Strings in the array.
      */
     public static double averageStringLength(String[] array) {
-        return 0.0;
+        if (array == null || array.length == 0) {
+            return 0.0;
+        }
+
+        double total = 0.0;
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                total += array[i].length();
+                count++;
+            }
+        }
+        if (count == 0) {
+            return 0;
+        }
+        return (double) total / count;
     }
 
     /**
@@ -81,7 +140,22 @@ public class ArrayOps {
      *         string.
      */
     public static int[] countLetterFrequencies(String input) {
-        return new int[26];
+        if (input == null) {
+            return new int[0];
+        }
+        
+        int[] frequency = new int[26];
+        input = input.toLowerCase();
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+
+            if (c >= 'a' && c <= 'z') {
+                int index = c - 'a';
+                frequency[index]++;
+            }
+        }
+        return frequency;
     }
 
     /**
@@ -95,7 +169,14 @@ public class ArrayOps {
      * @return The updated array
      */
     public static int[] removeIntAndScoot(int[] array, int index) {
-        return new int[0];
+        if (array == null || index < 0 || index >= array.length) {
+            return array;
+        }
+        for (int i = index; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array[array.length - 1] = 0;
+        return array;
     }
 
     /**
@@ -106,7 +187,15 @@ public class ArrayOps {
      * @return The resized array
      */
     public static int[] resizeIntArray(int[] array) {
-        return new int[0];
+        if (array == null) {
+            return new int[0];
+        }
+
+        int[] newArray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        return newArray;
     }
 
     /**
@@ -123,7 +212,19 @@ public class ArrayOps {
      *         each String
      */
     public static String[] addNumToStringArray(String[] array) {
-        return new String[0];
+        if (array == null) {
+            return null; 
+        }
+
+        String[] newArray = new String[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                newArray[i] = '#' + i + " " +  array[i];
+            } else {
+                newArray[i] = null;
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -134,7 +235,15 @@ public class ArrayOps {
      * @return The reversed array
      */
     public static int[] reverseIntArray(int[] array) {
-        return new int[0];
+        if (array == null) {
+            return new int[0]; 
+        }
+        
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[array.length - 1 - i];
+        }
+        return newArray;
     }
 
 }
