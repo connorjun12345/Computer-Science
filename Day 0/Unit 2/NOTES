@@ -1,0 +1,157 @@
+//THINGS TO USE
+//TYPE CASTING IS AT THE BOTTOM OF UNIT 2 EXERSISES
+//single quote '' when char
+indexOf();
+charAt();
+.toLowerCase();
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+How to use Scanner class:
+//EXAMPLES USED IN RPSGame.java
+
+//REMEMBER TO IMPORT SCANNER BEFORE CREATING THE CLASS
+import java.util.Scanner;
+//FIRST CREATE A SCANNER
+scanner = new Scanner(System.in);
+//ASK FOR AN INPUT
+System.out.println("Enter name: ");
+//SCAN THE INPUT
+String name = scanner.nextLine();
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+public class JavaCheatSheet {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. CONDITIONALS
+        int a = 5, b = 10;
+        if (a > b) {
+            System.out.println("a is bigger");
+        } else if (a < b) {
+            System.out.println("b is bigger");
+        } else {
+            System.out.println("a and b are equal");
+        }
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 2. BOOLEAN LOGIC
+        boolean isTrue = (a + b == 15); 
+        System.out.println("Is sum 15? " + isTrue);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 3. STRINGS
+        String word = "hello";
+        System.out.println("Length: " + word.length());
+        System.out.println("First char: " + word.charAt(0));
+        System.out.println("Substring: " + word.substring(1, 4));
+        System.out.println("Contains 'e'? " + word.contains("e"));
+        System.out.println("Lowercase: " + word.toLowerCase());
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 4. STRING LOOP EXAMPLES
+        String doubleChar = "";
+        for (int i = 0; i < word.length(); i++) {
+            doubleChar += word.charAt(i) + "" + word.charAt(i);
+        }
+        System.out.println("Double chars: " + doubleChar);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 5. ARRAYS
+        int[] numbers = {1, 2, 3, 4, 5};
+        String[] words = {"apple", "banana", "cherry"};
+
+        // Traversing array
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+        System.out.println();
+
+        // Finding max
+        int max = numbers[0];
+        for (int num : numbers) {
+            if (num > max) max = num;
+        }
+        System.out.println("Max: " + max);
+
+        // Sum of array
+        int sum = 0;
+        for (int num : numbers) sum += num;
+        System.out.println("Sum: " + sum);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 6. BOOLEAN ARRAY LOGIC
+        int countEven = 0;
+        for (int num : numbers) if (num % 2 == 0) countEven++;
+        System.out.println("Even numbers: " + countEven);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 7. METHOD EXAMPLES
+        System.out.println("Fizz or Buzz? " + fizzString("fib"));
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 8. OBJECTS & CLASSES
+        Robot robot = new Robot(new int[]{1, 0, 2}, 0);
+        System.out.println("Robot at position: " + robot.getPosition());
+        robot.move();
+        System.out.println("Robot moved to: " + robot.getPosition());
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+        // 9. LOOPS & CONDITIONALS TO CHECK ARRAYS
+        while (!hallIsClear(new int[]{1, 2, 0})) {
+            System.out.println("Not clear yet!");
+            break; // example
+        }
+
+        scanner.close();
+    }
+
+    // Example string method
+    public static String fizzString(String str) {
+        String result = "";
+        if (str.startsWith("f")) result += "Fizz";
+        if (str.endsWith("b")) result += "Buzz";
+        if (!str.startsWith("f") && !str.endsWith("b")) result = str;
+        return result;
+    }
+
+    // Example array method
+    public static boolean hallIsClear(int[] hallway) {
+        for (int i : hallway) if (i > 0) return false;
+        return true;
+    }
+
+}
+
+// Example minimal Robot class
+class Robot {
+    private int[] hallway;
+    private int position;
+    private boolean facingRight;
+
+    public Robot(int[] hallway, int start) {
+        this.hallway = hallway;
+        this.position = start;
+        this.facingRight = true;
+    }
+
+    public int getPosition() { return position; }
+
+    public void move() {
+        if (position < hallway.length - 1) position++;
+        else facingRight = !facingRight;
+    }
+}

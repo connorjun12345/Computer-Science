@@ -31,10 +31,19 @@ public class StudentRecord {
     // inherited methods
     // to-do: implement toString
     public String toString() {
-        return name + "'s scores: " + scores;
+        String result = name + "'s scores: [";
+        for (int i = 0; i < scores.length; i++) {
+            int num = scores[i];
+            result = result + num;
+            if (i < scores.length - 1) {
+                result = result + ", ";
+            }
+        }
+        result = result + "]";
+        return result;
     }
 
-     public boolean equals(StudentRecord other) {
+    public boolean equals(StudentRecord other) {
         
         for (int i = 0; i < scores.length; i++) {
             if (scores[i] != other.scores[i]) {
@@ -74,10 +83,10 @@ public class StudentRecord {
 
 
     public int getTestScore(int testNumber) {
-        int testScore = scores[testNumber];
-        if (testNumber >= scores.length) {
+        if (testNumber >= scores.length || testNumber < 0) {
             return -1;
         } else {
+            int testScore = scores[testNumber];
             return testScore;
         }
     }
@@ -87,8 +96,13 @@ public class StudentRecord {
      * 
      * @return true if student has improved, false otherwise
      */
+    
     public boolean hasImproved() {
-
+        for (int i = 0; i < scores.length - 1; i++) {
+            if (scores[i] >= scores[i + 1]) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -103,7 +117,12 @@ public class StudentRecord {
      */
 
     public double getFinalAverage() {
-        return 0.0;
+        if (hasImproved() == true) {
+            int mid = scores.length / 2;
+            return getAverage(mid, scores.length - 1);
+        } else {
+            return getAverage(0, scores.length - 1);
+        }
     }
 
 }
