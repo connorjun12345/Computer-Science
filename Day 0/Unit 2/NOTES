@@ -1,157 +1,235 @@
-//THINGS TO USE
-//TYPE CASTING IS AT THE BOTTOM OF UNIT 2 EXERSISES
-//single quote '' when char
-indexOf();
-charAt();
-.toLowerCase();
+
+//-----------------------------------------2D ARRAYS---------------------------------------------
 
 
 
-
-
---------------------------------------------------------------------------------------------------------------------------------------------
-How to use Scanner class:
-//EXAMPLES USED IN RPSGame.java
-
-//REMEMBER TO IMPORT SCANNER BEFORE CREATING THE CLASS
-import java.util.Scanner;
-//FIRST CREATE A SCANNER
-scanner = new Scanner(System.in);
-//ASK FOR AN INPUT
-System.out.println("Enter name: ");
-//SCAN THE INPUT
-String name = scanner.nextLine();
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-public class JavaCheatSheet {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // 1. CONDITIONALS
-        int a = 5, b = 10;
-        if (a > b) {
-            System.out.println("a is bigger");
-        } else if (a < b) {
-            System.out.println("b is bigger");
-        } else {
-            System.out.println("a and b are equal");
+//------LOOPING THROUGH A 2D ARRAY----------
+    int[][] Array2D = new int[10][10];
+    for (int row = 0; row < Array2D.length; row++) {
+        for (int col = 0; col < Array2D[row].length; col++) {
+            System.out.println(a[row][col]);
         }
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 2. BOOLEAN LOGIC
-        boolean isTrue = (a + b == 15); 
-        System.out.println("Is sum 15? " + isTrue);
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 3. STRINGS
-        String word = "hello";
-        System.out.println("Length: " + word.length());
-        System.out.println("First char: " + word.charAt(0));
-        System.out.println("Substring: " + word.substring(1, 4));
-        System.out.println("Contains 'e'? " + word.contains("e"));
-        System.out.println("Lowercase: " + word.toLowerCase());
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 4. STRING LOOP EXAMPLES
-        String doubleChar = "";
-        for (int i = 0; i < word.length(); i++) {
-            doubleChar += word.charAt(i) + "" + word.charAt(i);
-        }
-        System.out.println("Double chars: " + doubleChar);
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 5. ARRAYS
-        int[] numbers = {1, 2, 3, 4, 5};
-        String[] words = {"apple", "banana", "cherry"};
-
-        // Traversing array
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
-        }
-        System.out.println();
-
-        // Finding max
-        int max = numbers[0];
-        for (int num : numbers) {
-            if (num > max) max = num;
-        }
-        System.out.println("Max: " + max);
-
-        // Sum of array
-        int sum = 0;
-        for (int num : numbers) sum += num;
-        System.out.println("Sum: " + sum);
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 6. BOOLEAN ARRAY LOGIC
-        int countEven = 0;
-        for (int num : numbers) if (num % 2 == 0) countEven++;
-        System.out.println("Even numbers: " + countEven);
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 7. METHOD EXAMPLES
-        System.out.println("Fizz or Buzz? " + fizzString("fib"));
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 8. OBJECTS & CLASSES
-        Robot robot = new Robot(new int[]{1, 0, 2}, 0);
-        System.out.println("Robot at position: " + robot.getPosition());
-        robot.move();
-        System.out.println("Robot moved to: " + robot.getPosition());
-
---------------------------------------------------------------------------------------------------------------------------------------------
-
-        // 9. LOOPS & CONDITIONALS TO CHECK ARRAYS
-        while (!hallIsClear(new int[]{1, 2, 0})) {
-            System.out.println("Not clear yet!");
-            break; // example
-        }
-
-        scanner.close();
     }
 
-    // Example string method
-    public static String fizzString(String str) {
-        String result = "";
-        if (str.startsWith("f")) result += "Fizz";
-        if (str.endsWith("b")) result += "Buzz";
-        if (!str.startsWith("f") && !str.endsWith("b")) result = str;
-        return result;
-    }
 
-    // Example array method
-    public static boolean hallIsClear(int[] hallway) {
-        for (int i : hallway) if (i > 0) return false;
-        return true;
-    }
+//-------LOOPING THROUGH A 2D ARRAYLIST---------
+        for (int i = 0; i < classes.size(); i++) {
+            for (int j = 0; j <classes.get(i).size(); j++) {
+                //
+            }
+        }
 
-}
 
-// Example minimal Robot class
-class Robot {
-    private int[] hallway;
-    private int position;
-    private boolean facingRight;
+//-----------------------------------------ARRAYLISTS---------------------------------------------
 
-    public Robot(int[] hallway, int start) {
-        this.hallway = hallway;
-        this.position = start;
-        this.facingRight = true;
-    }
+// CREATE
+ArrayList<Integer> nums = new ArrayList<>();
+ArrayList<String> words = new ArrayList<>();
 
-    public int getPosition() { return position; }
+// ADD / GET / SET / REMOVE
+nums.add(5);                 // add to end
+nums.add(0, 99);             // add at index (shifts right)
+int x = nums.get(0);         // read
+nums.set(0, 7);              // replace
+nums.remove(0);              // remove by INDEX (shifts left)
+nums.remove(Integer.valueOf(5)); // remove by VALUE (for Integer lists)
 
-    public void move() {
-        if (position < hallway.length - 1) position++;
-        else facingRight = !facingRight;
+// SIZE
+int n = nums.size();
+
+// PRINT (calls toString on list)
+System.out.println(nums);
+
+// IMPORTANT: remove while looping
+// If removing while scanning LEFT->RIGHT, do i-- after remove.
+for (int i = 0; i < words.size(); i++) {
+    if (words.get(i).startsWith("p")) {
+        words.remove(i);
+        i--; // don’t skip the next item
     }
 }
+// Alternative: loop RIGHT->LEFT so you don’t need i--
+for (int i = words.size() - 1; i >= 0; i--) {
+    if (words.get(i).startsWith("p")) {
+        words.remove(i);
+    }
+}
+
+// FOR-EACH (read only; don’t remove from list here)
+for (String s : words) {
+    // ok to read/compute
+}
+
+
+//-----------------------------------------COMMON EXCEPTION PRECHECKS------------------------------
+
+// For methods that should throw on null input:
+if (list == null) throw new IllegalArgumentException("list cannot be null");
+
+// For empty list cases (if required):
+if (list.size() == 0) return new ArrayList<>();
+
+// Index ranges (inclusive):
+// 0 <= start <= end < list.size()
+
+
+//-----------------------------------------SORTING------------------------------------------------
+
+Collections.sort(nums); // ascending
+nums.sort(Comparator.reverseOrder()); // descending
+
+// Custom sort by string length:
+words.sort((a,b) -> a.length() - b.length());
+
+
+//-----------------------------------------2D ARRAYS----------------------------------------------
+
+// CREATE
+int[][] grid = new int[rows][cols];
+double[][] view = new double[rows][cols];
+
+// ROW COUNT and COL COUNT
+int rowCount = grid.length;
+int colCount = grid[0].length; // assumes at least 1 row
+
+// LOOP through 2D array
+for (int r = 0; r < grid.length; r++) {
+    for (int c = 0; c < grid[r].length; c++) {
+        // use grid[r][c]
+    }
+}
+
+// LOOP through 2D array (for-each)
+for (int[] row : grid) {
+    for (int val : row) {
+        // use val
+    }
+}
+
+// FIND / COUNT pattern
+int count = 0;
+for (int r = 0; r < grid.length; r++) {
+    for (int c = 0; c < grid[r].length; c++) {
+        if (grid[r][c] == target) count++;
+    }
+}
+
+// SUM / AVERAGE in a sub-rectangle (inclusive indices)
+double sum = 0;
+int ct = 0;
+for (int r = startRow; r <= endRow; r++) {
+    for (int c = startCol; c <= endCol; c++) {
+        sum += view[r][c];
+        ct++;
+    }
+}
+double avg = sum / ct;
+
+// toString for 2D (each row newline, trailing space after each number)
+public String toString2D(double[][] a) {
+    String out = "";
+    for (int r = 0; r < a.length; r++) {
+        for (int c = 0; c < a[r].length; c++) {
+            out += a[r][c] + " ";
+        }
+        if (r < a.length - 1) out += "\n";
+    }
+    return out;
+}
+
+
+//-----------------------------------------2D ARRAYLIST (ArrayList<ArrayList<T>>)-----------------
+
+ArrayList<ArrayList<String>> classes = new ArrayList<>();
+
+// Add a row
+classes.add(new ArrayList<>());
+
+// Add to row
+classes.get(0).add("Math");
+
+// Loop
+for (int i = 0; i < classes.size(); i++) {
+    for (int j = 0; j < classes.get(i).size(); j++) {
+        String val = classes.get(i).get(j);
+    }
+}
+
+// Safe remove in 2D ArrayList (right-to-left on inner list)
+for (int i = 0; i < classes.size(); i++) {
+    for (int j = classes.get(i).size() - 1; j >= 0; j--) {
+        if (classes.get(i).get(j).equals("drop")) {
+            classes.get(i).remove(j);
+        }
+    }
+}
+
+
+//-----------------------------------------CONVERTING BETWEEN ARRAYLIST and ARRAY------------------
+
+// ArrayList<Integer> -> int[] (manual)
+int[] arr = new int[nums.size()];
+for (int i = 0; i < nums.size(); i++) arr[i] = nums.get(i);
+
+// int[] -> ArrayList<Integer>
+ArrayList<Integer> list2 = new ArrayList<>();
+for (int v : arr) list2.add(v);
+
+// ArrayList<String> -> String[]
+String[] sArr = words.toArray(new String[0]);
+
+
+//-----------------------------------------CLASSIC TEST PATTERNS----------------------------------
+
+// 1) Stable partition (evens before odds, preserve order)
+public static int[] moveEvenBeforeOdd(int[] nums) {
+    int[] res = new int[nums.length];
+    int evenCount = 0;
+    for (int x : nums) if (x % 2 == 0) evenCount++;
+
+    int ei = 0, oi = evenCount;
+    for (int x : nums) {
+        if (x % 2 == 0) res[ei++] = x;
+        else res[oi++] = x;
+    }
+    return res;
+}
+
+// 2) Filter+transform (square + 10, exclude endings 5 or 6)
+public static ArrayList<Integer> square56(ArrayList<Integer> nums) {
+    if (nums == null) throw new IllegalArgumentException();
+    ArrayList<Integer> res = new ArrayList<>();
+    for (int n : nums) {
+        int v = n*n + 10;
+        int last = Math.abs(v) % 10;
+        if (last != 5 && last != 6) res.add(v);
+    }
+    return res;
+}
+
+// 3) noYY (keep original strings if (s+"y") does NOT contain "yy")
+public static ArrayList<String> noYY(ArrayList<String> strs) {
+    if (strs == null) throw new IllegalArgumentException();
+    ArrayList<String> res = new ArrayList<>();
+    for (String s : strs) {
+        if (!(s + "y").contains("yy")) res.add(s);
+    }
+    return res;
+}
+
+// 4) Rotate array left by 1 (first goes last)
+public static void firstComesLast(String[] arr) {
+    if (arr == null || arr.length <= 1) return;
+    String first = arr[0];
+    for (int i = 0; i < arr.length - 1; i++) arr[i] = arr[i+1];
+    arr[arr.length - 1] = first;
+}
+
+// 5) Rotate array right by 1 (last goes first)
+public static void lastComesFirst(String[] arr) {
+    if (arr == null || arr.length <= 1) return;
+    String last = arr[arr.length - 1];
+    for (int i = arr.length - 1; i >= 1; i--) arr[i] = arr[i-1];
+    arr[0] = last;
+}
+
