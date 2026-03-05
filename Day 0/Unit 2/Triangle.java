@@ -25,10 +25,10 @@ public class Triangle extends Shape {
     // to-do: implement the draw method
     public void draw(Graphics g) {
         Graphics2D g2D = (Graphics2D) g; // initializes a 2D graphics component
-        g2D.setPaint(Color.pink); // sets the paint color to Pink
+        g2D.setPaint(fillColor); // sets the paint color to Pink
         g2D.fillPolygon(xCoord, yCoord, 3);
 
-        g2D.setPaint(Color.red); // sets the paint color to red
+        g2D.setPaint(strokeColor); // sets the paint color to red
         g2D.setStroke(new BasicStroke(5)); // changes the line stroke width to 5
         g2D.drawPolygon(xCoord, yCoord, 3);
     }

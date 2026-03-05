@@ -40,8 +40,8 @@ public class MemberTicket extends Ticket {
 
     @Override
     public void printCancellationPolicy() {
-        super.printCancellationPolicy();
-        System.out.print("Can be canceled within 24 hours before the event. No Cancellation fee applies.");
+        System.out.print(
+                "Cancellation Policy: Can be canceled within 24 hours before the event. No cancellation fee applies.");
 
     }
 

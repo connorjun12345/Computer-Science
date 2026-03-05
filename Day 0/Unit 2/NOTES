@@ -179,6 +179,12 @@ for (int v : arr) list2.add(v);
 String[] sArr = words.toArray(new String[0]);
 
 
+
+
+
+
+
+
 //-----------------------------------------CLASSIC TEST PATTERNS----------------------------------
 
 // 1) Stable partition (evens before odds, preserve order)
@@ -232,4 +238,48 @@ public static void lastComesFirst(String[] arr) {
     for (int i = arr.length - 1; i >= 1; i--) arr[i] = arr[i-1];
     arr[0] = last;
 }
+
+//Interfaces
+# ✅ What You’re Practicing (Big Idea)
+
+### Interfaces (New)
+
+An **interface** represents a **capability** a class can have.
+
+If something is `Sellable`, the register doesn’t care what it is (bar, sticker, or anything else) it just needs:
+
+- a name to display
+- a base price (pre-tax)
+
+Interfaces are best when you want **different “families” of classes** to behave consistently without forcing them to share the same parent class.
+
+---
+
+### Review: Abstract Classes
+
+An **abstract class** is used when multiple classes share:
+
+- common fields (data)
+- common logic (methods)
+- a shared “template” algorithm, but with parts customized by subclasses
+
+In this lab, all chocolate bars share grams, base pricing rules, and formatting.
+
+But each bar type has a different flavor name and add-in cost per gram.  So the abstract class forces subclasses to provide those details.
+
+### Review: Abstract Classes
+
+An **abstract class** is used when multiple classes share:
+
+- common fields (data)
+- common logic (methods)
+- a shared “template” algorithm, but with parts customized by subclasses
+
+In this lab, all chocolate bars share grams, base pricing rules, and formatting.
+
+But each bar type has a different flavor name and add-in cost per gram.  So the abstract class forces subclasses to provide those details.
+
+
+
+
 

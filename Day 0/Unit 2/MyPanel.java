@@ -23,19 +23,23 @@ public class MyPanel extends JPanel {
 
         // door
         shapes.add(new Rectangle(175, 250, 50, 125));
-        shapes.get(1).setFillColor(Color.orange);
+        shapes.get(1).setFillColor(Color.red);
 
         // window
         shapes.add(new Square(285, 180, 50));
+        shapes.get(2).setFillColor(Color.cyan);
 
         // chimney
         shapes.add(new Square(140, 70, 50));
+        shapes.get(3).setFillColor(Color.orange);
 
         // roof
         shapes.add(new Triangle(new int[] { 125, 250, 375 }, new int[] { 125, 75, 125 }));
+        shapes.get(4).setFillColor(Color.black);
 
         // sun
         shapes.add(new Circle(30, 30, 50));
+        shapes.get(5).setFillColor(Color.yellow);
 
         // bushes
         shapes.add(new Circle(360, 360, 40));
